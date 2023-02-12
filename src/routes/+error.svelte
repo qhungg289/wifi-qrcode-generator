@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import Heading from "$lib/component/Typography/Heading.svelte";
 </script>
 
-<hgroup class="py-8 space-y-4">
-	<h1 class="font-bold text-4xl">{$page.status}</h1>
-	<h2 class="text-lg text-zinc-400">{$page.error?.message}</h2>
-</hgroup>
+<Heading>
+	<svelte:fragment slot="heading">{$page.status}</svelte:fragment>
+	<svelte:fragment slot="sub-heading">{$page.error?.message}</svelte:fragment>
+</Heading>

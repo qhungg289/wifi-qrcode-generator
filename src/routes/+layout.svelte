@@ -11,7 +11,7 @@
 	/>
 </svelte:head>
 
-<header class="fixed top-0 inset-x-0 py-4 bg-zinc-800 border-b border-zinc-700">
+<header class="fixed top-0 inset-x-0 py-2 bg-zinc-800 border-b border-zinc-700 z-10">
 	<div class="container flex items-center justify-between">
 		<p class="text-lg">WiFi2QR</p>
 	</div>
@@ -24,7 +24,7 @@
 </main>
 
 <nav
-	class="fixed bottom-0 inset-x-0 py-2 flex items-center justify-around bg-zinc-800 text-zinc-400 border-t border-zinc-700"
+	class="fixed bottom-0 inset-x-0 py-2 flex items-center justify-around bg-zinc-800 text-zinc-400 text-xs font-bold border-t border-zinc-700 z-10"
 >
 	<a
 		class="flex flex-col items-center gap-1 w-full"
@@ -36,7 +36,7 @@
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
 				fill="currentColor"
-				class="w-6 h-6"
+				class="w-5 h-5"
 			>
 				<path
 					fill-rule="evenodd"
@@ -49,9 +49,9 @@
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
-				stroke-width="1.5"
+				stroke-width="2"
 				stroke="currentColor"
-				class="w-6 h-6"
+				class="w-5 h-5"
 			>
 				<path
 					stroke-linecap="round"
@@ -72,7 +72,7 @@
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"
 				fill="currentColor"
-				class="w-6 h-6"
+				class="w-5 h-5"
 			>
 				<path
 					fill-rule="evenodd"
@@ -85,9 +85,9 @@
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
-				stroke-width="1.5"
+				stroke-width="2"
 				stroke="currentColor"
-				class="w-6 h-6"
+				class="w-5 h-5"
 			>
 				<path
 					stroke-linecap="round"
@@ -106,9 +106,9 @@
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
 			viewBox="0 0 24 24"
-			stroke-width="1.5"
+			stroke-width="2"
 			stroke="currentColor"
-			class="w-6 h-6"
+			class="w-5 h-5"
 		>
 			<path
 				stroke-linecap="round"
@@ -118,4 +118,5 @@
 		</svg><span>Search</span>
 	</a>
 </nav>
+
 <div id="modal-container" />
