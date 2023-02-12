@@ -141,7 +141,7 @@
 			<button
 				type="submit"
 				class="bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 rounded px-6 py-2 transition-all"
-				>Generate</button
+				>Create</button
 			>
 		</div>
 	</form>
