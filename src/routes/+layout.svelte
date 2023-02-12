@@ -5,7 +5,10 @@
 
 <svelte:head>
 	<title>WiFi2QR</title>
-	<meta name="description" content="Create a QR code with your WiFi information to share others." />
+	<meta
+		name="description"
+		content="Create a QR code with your WiFi information to share with others."
+	/>
 </svelte:head>
 
 <header class="fixed top-0 inset-x-0 py-4 bg-zinc-800 border-b border-zinc-700">
