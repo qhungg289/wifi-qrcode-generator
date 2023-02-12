@@ -5,7 +5,10 @@ module.exports = {
 		extend: {
 			container: {
 				center: true,
-				padding: "2rem"
+				padding: "1rem"
+			},
+			fontFamily: {
+				"ibm-plex-sans": ["IBM Plex Sans", "sans-serif"]
 			}
 		}
 	},
