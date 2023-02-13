@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { deleteWifi, wifiList, type WifiInfo } from "$lib/store/wifiList";
-	import { onMount } from "svelte";
 	import { fade } from "svelte/transition";
 	import { flip } from "svelte/animate";
 	import Heading from "$lib/component/Typography/Heading.svelte";
@@ -16,13 +15,6 @@
 	let isQrPreviewShow = false;
 
 	const setSelectedWifi = (wifi: WifiInfo) => (selectedWifi = wifi);
-
-	onMount(() => {
-		const savedFromLocal = localStorage.getItem("wifiList");
-		if (savedFromLocal) {
-			$wifiList = JSON.parse(savedFromLocal);
-		}
-	});
 </script>
 
 <Heading>

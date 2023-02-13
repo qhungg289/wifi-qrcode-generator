@@ -1,6 +1,15 @@
 <script lang="ts">
 	import { page } from "$app/stores";
+	import { onMount } from "svelte";
 	import "../app.css";
+	import { wifiList } from "$lib/store/wifiList";
+
+	onMount(() => {
+		const savedFromLocal = localStorage.getItem("wifiList");
+		if (savedFromLocal) {
+			$wifiList = JSON.parse(savedFromLocal);
+		}
+	});
 </script>
 
 <svelte:head>

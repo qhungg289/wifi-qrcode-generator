@@ -1,7 +1,6 @@
 <script lang="ts">
 	import QRCode from "qrcode";
-	import { wifiList, addNewWifi } from "$lib/store/wifiList";
-	import { onMount } from "svelte";
+	import { addNewWifi } from "$lib/store/wifiList";
 	import Heading from "$lib/component/Typography/Heading.svelte";
 	import TextInput from "$lib/component/Input/TextInput.svelte";
 	import RadioGroup from "$lib/component/Input/RadioGroupInput.svelte";
@@ -39,13 +38,6 @@
 
 		addNewWifi({ ssid, encryption, password, hidden, dataURL: qrSrc });
 	};
-
-	onMount(() => {
-		const savedFromLocal = localStorage.getItem("wifiList");
-		if (savedFromLocal) {
-			$wifiList = JSON.parse(savedFromLocal);
-		}
-	});
 </script>
 
 <Heading>
