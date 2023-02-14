@@ -5,7 +5,7 @@ export type WifiInfo = {
 	encryption: string;
 	password: string;
 	hidden: boolean;
-	dataURL: string;
+	dataURL?: string;
 };
 
 export const wifiList = writable<WifiInfo[]>([]);
