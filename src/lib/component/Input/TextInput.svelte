@@ -7,8 +7,8 @@
 	export let name: string;
 </script>
 
-<label for={name} class="flex flex-col gap-1 text-zinc-400">
-	{label}
+<label for={name} class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 text-zinc-400">
+	<span class="pl-4">{label}</span>
 	<input
 		bind:value
 		type="text"
@@ -17,6 +17,6 @@
 		{placeholder}
 		{required}
 		{disabled}
-		class="bg-zinc-800 text-zinc-100 rounded border-zinc-700 disabled:opacity-75 disabled:cursor-not-allowed"
+		class="w-full bg-zinc-900 text-zinc-100 border-none disabled:opacity-75 disabled:cursor-not-allowed"
 	/>
 </label>

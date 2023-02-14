@@ -5,13 +5,13 @@
 </script>
 
 <fieldset>
-	<label for={name} class="flex items-center gap-2 text-zinc-400">
+	<label for={name} class="flex items-center gap-2 text-zinc-400 pl-4">
 		<input
 			bind:checked
 			type="checkbox"
 			{name}
 			id={name}
-			class="bg-zinc-800 rounded border-zinc-700 transition-all"
+			class="bg-zinc-900 border-zinc-800 transition-all"
 		/>
 		{label}
 	</label>

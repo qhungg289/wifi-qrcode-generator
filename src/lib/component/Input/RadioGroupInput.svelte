@@ -10,20 +10,22 @@
 	export let values: Radio[];
 </script>
 
-<fieldset class="flex flex-col gap-1">
-	<legend class="text-zinc-400">{legend}</legend>
+<div class="flex flex-col gap-2 pl-4">
+	<p class="text-zinc-400">{legend}</p>
 
-	{#each values as radio}
-		<label for={radio.name} class="flex items-center gap-2 text-zinc-400 transition-all">
-			<input
-				bind:group
-				type="radio"
-				name={radio.name}
-				id={radio.name}
-				value={radio.value}
-				class="bg-zinc-800 border-zinc-700"
-			/>
-			{radio.label}
-		</label>
-	{/each}
-</fieldset>
+	<div class="space-y-1">
+		{#each values as radio}
+			<label for={radio.name} class="flex items-center gap-2 text-zinc-400 transition-all">
+				<input
+					bind:group
+					type="radio"
+					name={radio.name}
+					id={radio.name}
+					value={radio.value}
+					class="bg-zinc-900 border-zinc-800"
+				/>
+				{radio.label}
+			</label>
+		{/each}
+	</div>
+</div>
