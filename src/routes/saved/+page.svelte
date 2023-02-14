@@ -4,11 +4,32 @@
 	import Heading from "$lib/component/Typography/Heading.svelte";
 	import WifiOverview from "$lib/component/WifiOverview.svelte";
 	import QrCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
+	import QrCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
 
 	let selectedWifi: WifiInfo;
 	let isQrPreviewShow = false;
+	let isQrDeleteShow = false;
 
 	const setSelectedWifi = (wifi: WifiInfo) => (selectedWifi = wifi);
+
+	const exportToJSON = () => {
+		const savedFromLocal = localStorage.getItem("wifiList");
+		if (!savedFromLocal) {
+			return;
+		}
+
+		const cleanedUpList: WifiInfo[] = JSON.parse(savedFromLocal);
+		cleanedUpList.forEach((w) => {
+			delete w.dataURL;
+		});
+
+		const a = document.createElement("a");
+		a.href = URL.createObjectURL(
+			new Blob([JSON.stringify(cleanedUpList)], { type: "application/json" })
+		);
+		a.download = "wifi.json";
+		a.click();
+	};
 </script>
 
 <Heading>
@@ -18,8 +39,15 @@
 	>
 </Heading>
 
+<button
+	disabled={$wifiList.length == 0}
+	on:click={exportToJSON}
+	class="bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 mx-4 mb-4 px-6 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+	>Export</button
+>
+
 {#if $wifiList.length > 0}
-	<div class="grid md:grid-cols-2 gap-4">
+	<div class="grid">
 		{#each $wifiList as wifi (wifi)}
 			<div animate:flip={{ duration: 200 }}>
 				<WifiOverview
@@ -33,7 +61,7 @@
 		{/each}
 	</div>
 {:else}
-	<div class="text-zinc-700 flex flex-col items-center gap-2 py-16 select-none">
+	<div class="text-zinc-800 flex flex-col items-center gap-2 py-16 select-none">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
@@ -58,7 +86,19 @@
 		on:clickoutside={() => (isQrPreviewShow = false)}
 		on:close={() => (isQrPreviewShow = false)}
 		on:delete={() => {
+			isQrDeleteShow = true;
+		}}
+	/>
+{/if}
+
+{#if isQrDeleteShow}
+	<QrCodeDeleteModal
+		{selectedWifi}
+		on:clickoutside={() => (isQrDeleteShow = false)}
+		on:close={() => (isQrDeleteShow = false)}
+		on:delete={() => {
 			deleteWifi(selectedWifi);
+			isQrDeleteShow = false;
 			isQrPreviewShow = false;
 		}}
 	/>

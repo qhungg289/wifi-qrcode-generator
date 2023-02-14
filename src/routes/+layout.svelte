@@ -20,24 +20,24 @@
 	/>
 </svelte:head>
 
-<header class="fixed top-0 inset-x-0 py-2 bg-zinc-800 border-b border-zinc-700 z-10">
-	<div class="container flex items-center justify-between">
+<header class="px-4 py-2 border-b border-zinc-800 z-10">
+	<div class="flex items-center justify-between">
 		<p class="text-lg">WiFi2QR</p>
 	</div>
 </header>
 
 <main>
-	<div class="container mb-32 mt-16">
+	<div class="mb-36">
 		<slot />
 	</div>
 </main>
 
 <nav
-	class="fixed bottom-0 inset-x-0 py-2 flex items-center justify-around bg-zinc-800 text-zinc-400 text-xs font-bold border-t border-zinc-700 z-10"
+	class="fixed bottom-0 inset-x-0 py-2 flex items-center justify-around bg-zinc-900 text-zinc-400 text-xs font-bold border-t border-zinc-800 z-10"
 >
 	<a
 		class="flex flex-col items-center gap-1 w-full"
-		class:text-blue-400={$page.url.pathname === "/"}
+		class:text-blue-500={$page.url.pathname === "/"}
 		href="/"
 	>
 		{#if $page.url.pathname === "/"}
@@ -73,7 +73,7 @@
 	</a>
 	<a
 		class="flex flex-col items-center gap-1 w-full"
-		class:text-blue-400={$page.url.pathname === "/saved"}
+		class:text-blue-500={$page.url.pathname === "/saved"}
 		href="/saved"
 	>
 		{#if $page.url.pathname === "/saved"}
@@ -109,7 +109,7 @@
 	>
 	<a
 		class="flex flex-col items-center gap-1 w-full"
-		class:text-blue-400={$page.url.pathname === "/search"}
+		class:text-blue-500={$page.url.pathname === "/search"}
 		href="/search"
 		><svg
 			xmlns="http://www.w3.org/2000/svg"

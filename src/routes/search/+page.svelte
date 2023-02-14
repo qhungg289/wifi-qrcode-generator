@@ -5,6 +5,7 @@
 	import Heading from "$lib/component/Typography/Heading.svelte";
 	import WifiOverview from "$lib/component/WifiOverview.svelte";
 	import QrCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
+	import QrCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
 
 	let search = "";
 
@@ -13,6 +14,7 @@
 
 	let selectedWifi: WifiInfo;
 	let isQrPreviewShow = false;
+	let isQrDeleteShow = false;
 
 	const setSelectedWifi = (wifi: WifiInfo) => (selectedWifi = wifi);
 </script>
@@ -25,7 +27,7 @@
 	<input
 		type="text"
 		bind:value={search}
-		class="bg-zinc-800 rounded-full border border-zinc-700 w-full pl-12"
+		class="bg-zinc-900 border border-zinc-800 w-full pl-12"
 		placeholder="Search your saved wifi..."
 	/>
 	<svg
@@ -45,7 +47,7 @@
 </div>
 
 {#if search}
-	<div transition:fade|local class="grid md:grid-cols-2 gap-4 mt-4">
+	<div transition:fade|local class="grid">
 		{#each searchResults as wifi (wifi)}
 			<div animate:flip={{ duration: 200 }}>
 				<WifiOverview
@@ -66,7 +68,19 @@
 		on:clickoutside={() => (isQrPreviewShow = false)}
 		on:close={() => (isQrPreviewShow = false)}
 		on:delete={() => {
+			isQrDeleteShow = true;
+		}}
+	/>
+{/if}
+
+{#if isQrDeleteShow}
+	<QrCodeDeleteModal
+		{selectedWifi}
+		on:clickoutside={() => (isQrDeleteShow = false)}
+		on:close={() => (isQrDeleteShow = false)}
+		on:delete={() => {
 			deleteWifi(selectedWifi);
+			isQrDeleteShow = false;
 			isQrPreviewShow = false;
 		}}
 	/>

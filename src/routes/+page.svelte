@@ -1,5 +1,6 @@
 <script lang="ts">
 	import QRCode from "qrcode";
+	import { fade } from "svelte/transition";
 	import { addNewWifi } from "$lib/store/wifiList";
 	import Heading from "$lib/component/Typography/Heading.svelte";
 	import TextInput from "$lib/component/Input/TextInput.svelte";
@@ -7,6 +8,7 @@
 	import PasswordInput from "$lib/component/Input/PasswordInput.svelte";
 	import CheckBoxInput from "$lib/component/Input/CheckBoxInput.svelte";
 	import QrCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
+	import Toast from "$lib/component/Toast.svelte";
 
 	let ssid = "";
 	let encryption: "WPA" | "WEP" | "nopass" = "WPA";
@@ -15,6 +17,7 @@
 	let qrSrc = "";
 
 	let isQrPreviewShow = false;
+	let isToastShow = false;
 
 	$: isPasswordFieldUnavailable = encryption === "nopass";
 
@@ -37,6 +40,8 @@
 		formatToQR();
 
 		addNewWifi({ ssid, encryption, password, hidden, dataURL: qrSrc });
+
+		isToastShow = true;
 	};
 </script>
 
@@ -72,19 +77,20 @@
 
 		<CheckBoxInput bind:checked={hidden} name="hidden" label="Hidden" />
 
-		<div class="flex justify-end gap-2">
+		<div class="flex items-center gap-2 pl-4">
+			<button
+				type="submit"
+				class="bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 px-6 py-2 transition-all"
+				>Create</button
+			>
 			{#if qrSrc}
 				<button
-					class="bg-zinc-700 rounded py-2 px-6 border border-zinc-600 hover:opacity-80 active:opacity-90 transition-all"
+					transition:fade|local
+					class="bg-zinc-800 py-2 px-6 border border-zinc-700 hover:opacity-80 active:opacity-90 transition-all"
 					on:click|preventDefault={() => (isQrPreviewShow = !isQrPreviewShow)}
 					>{isQrPreviewShow ? "Hide QR code" : "Show QR code"}</button
 				>
 			{/if}
-			<button
-				type="submit"
-				class="bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 rounded px-6 py-2 transition-all"
-				>Create</button
-			>
 		</div>
 	</form>
 </div>
@@ -92,7 +98,12 @@
 {#if isQrPreviewShow}
 	<QrCodePreviewModal
 		selectedWifi={{ ssid, encryption, password, hidden, dataURL: qrSrc }}
+		disableDeleteAction
 		on:clickoutside={() => (isQrPreviewShow = false)}
 		on:close={() => (isQrPreviewShow = false)}
 	/>
+{/if}
+
+{#if isToastShow}
+	<Toast on:disappear={() => (isToastShow = false)}>QR code created.</Toast>
 {/if}
