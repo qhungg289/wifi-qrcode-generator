@@ -16,13 +16,13 @@
 	<title>WiFi2QR</title>
 	<meta
 		name="description"
-		content="Create a QR code with your WiFi information to share with others."
+		content="Create a QR code with your wifi information to share with others."
 	/>
 </svelte:head>
 
 <header class="px-4 py-2 border-b border-zinc-800 z-10">
 	<div class="flex items-center justify-between">
-		<p class="text-lg">WiFi2QR</p>
+		<p class="text-lg">Wifi2QR</p>
 	</div>
 </header>
 

@@ -48,13 +48,13 @@
 <Heading>
 	<svelte:fragment slot="heading">Create a new QR code</svelte:fragment>
 	<svelte:fragment slot="sub-heading"
-		>Your WiFi information stays in your machine and did not send to any server.</svelte:fragment
+		>Your wifi information stays in your machine and did not send to any server.</svelte:fragment
 	>
 </Heading>
 
 <div class="">
 	<form on:submit|preventDefault={handleFormSubmit} class="space-y-4">
-		<TextInput bind:value={ssid} name="ssid" label="SSID" placeholder="Your WiFi name" required />
+		<TextInput bind:value={ssid} name="ssid" label="SSID" placeholder="Your wifi name" required />
 
 		<RadioGroup
 			bind:group={encryption}
@@ -72,7 +72,7 @@
 			required={encryption !== "nopass"}
 			label="Password"
 			name="password"
-			placeholder="Your WiFi password"
+			placeholder="Your wifi password"
 		/>
 
 		<CheckBoxInput bind:checked={hidden} name="hidden" label="Hidden" />
