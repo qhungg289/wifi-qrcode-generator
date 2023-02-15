@@ -19,7 +19,7 @@
 
 <Portal target="#modal-container">
 	<div
-		class="pointer-events-none absolute inset-0 h-screen flex flex-col items-center justify-end z-20"
+		class="pointer-events-none fixed inset-0 h-screen flex flex-col items-center justify-end z-20"
 	>
 		<div transition:fade|local class="bg-zinc-800 px-6 py-2 mb-20 text-sm">
 			<slot />
