@@ -165,7 +165,7 @@
 {#if isEdit && selectedWifiList.length > 0}
 	<Portal>
 		<div class="pointer-events-none h-screen fixed inset-0 flex flex-col items-center justify-end">
-			<div transition:fly={{ y: 200, easing: quartInOut }} class="mb-20 space-x-2">
+			<div transition:fly|local={{ y: 200, easing: quartInOut }} class="mb-20 space-x-2">
 				<button
 					disabled={$wifiList.length == 0}
 					on:click={exportToJSON}
