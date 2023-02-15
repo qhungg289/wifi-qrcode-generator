@@ -5,7 +5,7 @@
 	import { createEventDispatcher } from "svelte";
 	import { quartInOut } from "svelte/easing";
 
-	export let selectedWifi: WifiInfo;
+	export let selectedWifi: WifiInfo | null = null;
 
 	const dispatch = createEventDispatcher();
 </script>
@@ -25,9 +25,13 @@
 			out:scale={{ easing: quartInOut }}
 		>
 			<div class="p-8 text-center">
-				<p class="text-lg truncate w-52 sm:w-60 md:w-72">
-					Delete <span class="font-bold">{selectedWifi.ssid}</span>?
-				</p>
+				{#if selectedWifi}
+					<p class="text-lg truncate w-52 sm:w-60 md:w-72">
+						Delete <span class="font-bold">{selectedWifi.ssid}</span>?
+					</p>
+				{:else}
+					<p class="text-lg">Delete all the selected wifi?</p>
+				{/if}
 			</div>
 
 			<div class="flex w-full">

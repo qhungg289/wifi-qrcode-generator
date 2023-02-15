@@ -5,20 +5,50 @@
 	import WifiOverview from "$lib/component/WifiOverview.svelte";
 	import QrCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
 	import QrCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
+	import Portal from "svelte-portal";
+	import { fade, fly } from "svelte/transition";
+	import { quartInOut } from "svelte/easing";
 
 	let selectedWifi: WifiInfo;
+	let selectedWifiList: WifiInfo[] = [];
 	let isQrPreviewShow = false;
 	let isQrDeleteShow = false;
+	let isQrDeleteAllShow = false;
+	let isEdit = false;
 
 	const setSelectedWifi = (wifi: WifiInfo) => (selectedWifi = wifi);
 
-	const exportToJSON = () => {
-		const savedFromLocal = localStorage.getItem("wifiList");
-		if (!savedFromLocal) {
+	const addToSelectedList = (e: CustomEvent<any>, wifi: WifiInfo) => {
+		if (e.detail == true) {
+			selectedWifiList = [...selectedWifiList, wifi];
 			return;
 		}
 
-		const cleanedUpList: WifiInfo[] = JSON.parse(savedFromLocal);
+		selectedWifiList = selectedWifiList.filter((w) => w !== wifi);
+	};
+
+	const deleteAllSelected = () => {
+		selectedWifiList.forEach((w) => {
+			deleteWifi(w);
+		});
+
+		selectedWifiList = [];
+	};
+
+	const exportToJSON = () => {
+		let savedList;
+
+		if (selectedWifiList.length > 0) {
+			savedList = JSON.stringify(selectedWifiList);
+		} else {
+			savedList = localStorage.getItem("wifiList");
+		}
+
+		if (!savedList) {
+			return;
+		}
+
+		const cleanedUpList: WifiInfo[] = JSON.parse(savedList);
 		cleanedUpList.forEach((w) => {
 			delete w.dataURL;
 		});
@@ -39,12 +69,27 @@
 	>
 </Heading>
 
-<button
-	disabled={$wifiList.length == 0}
-	on:click={exportToJSON}
-	class="bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 mx-4 mb-4 px-6 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
-	>Export</button
->
+<div class="flex items-center justify-between mx-4 mb-4">
+	<div class="flex items-center justify-between">
+		<button
+			disabled={$wifiList.length == 0}
+			on:click={exportToJSON}
+			class="bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 px-6 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+			>Export</button
+		>
+
+		<button
+			disabled={$wifiList.length == 0}
+			on:click={() => (isEdit = !isEdit)}
+			class="text-blue-400 hover:opacity-80 active:opacity-90 px-6 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+			>{isEdit ? "Done" : "Edit"}</button
+		>
+	</div>
+
+	{#if isEdit}
+		<span transition:fade|local class="text-sm">{selectedWifiList.length} selected</span>
+	{/if}
+</div>
 
 {#if $wifiList.length > 0}
 	<div class="grid">
@@ -52,10 +97,12 @@
 			<div animate:flip={{ duration: 200 }}>
 				<WifiOverview
 					{wifi}
+					{isEdit}
 					on:showqrcode={() => {
 						setSelectedWifi(wifi);
 						isQrPreviewShow = true;
 					}}
+					on:check={(e) => addToSelectedList(e, wifi)}
 				/>
 			</div>
 		{/each}
@@ -102,4 +149,37 @@
 			isQrPreviewShow = false;
 		}}
 	/>
+{/if}
+
+{#if isQrDeleteAllShow}
+	<QrCodeDeleteModal
+		on:clickoutside={() => (isQrDeleteAllShow = false)}
+		on:close={() => (isQrDeleteAllShow = false)}
+		on:delete={() => {
+			deleteAllSelected();
+			isQrDeleteAllShow = false;
+		}}
+	/>
+{/if}
+
+{#if isEdit && selectedWifiList.length > 0}
+	<Portal>
+		<div class="pointer-events-none h-screen fixed inset-0 flex flex-col items-center justify-end">
+			<div transition:fly={{ y: 200, easing: quartInOut }} class="mb-20 space-x-2">
+				<button
+					disabled={$wifiList.length == 0}
+					on:click={exportToJSON}
+					class="pointer-events-auto bg-blue-600 border border-blue-500 hover:opacity-80 active:opacity-90 px-6 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+					>Export ({selectedWifiList.length})</button
+				>
+
+				<button
+					on:click={() => (isQrDeleteAllShow = true)}
+					disabled={selectedWifiList.length == 0}
+					class="pointer-events-auto bg-rose-600 border border-rose-500 hover:opacity-80 active:opacity-90 px-6 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+					>Delete ({selectedWifiList.length})</button
+				>
+			</div>
+		</div>
+	</Portal>
 {/if}
