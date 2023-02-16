@@ -84,10 +84,10 @@
 		</div>
 	{/if}
 	<nav
-		class="py-1 flex items-center justify-around bg-zinc-900 text-zinc-400 text-[0.65rem] font-bold border-t border-zinc-800 z-10"
+		class="py-1 flex items-center justify-around bg-zinc-900 text-zinc-400 text-[0.65rem] border-t border-zinc-800 z-10"
 	>
 		<a
-			class="flex flex-col items-center gap-1 w-full"
+			class="flex flex-col items-center gap-[0.15rem] w-full"
 			class:text-blue-500={$page.url.pathname === "/"}
 			href="/"
 		>
@@ -96,7 +96,7 @@
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
 					fill="currentColor"
-					class="w-5 h-5"
+					class="w-6 h-6"
 				>
 					<path
 						fill-rule="evenodd"
@@ -109,9 +109,9 @@
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
 					viewBox="0 0 24 24"
-					stroke-width="2"
+					stroke-width="1.75"
 					stroke="currentColor"
-					class="w-5 h-5"
+					class="w-6 h-6"
 				>
 					<path
 						stroke-linecap="round"
@@ -123,7 +123,7 @@
 			<span>Create</span>
 		</a>
 		<a
-			class="flex flex-col items-center gap-1 w-full"
+			class="flex flex-col items-center gap-[0.15rem] w-full"
 			class:text-blue-500={$page.url.pathname === "/saved"}
 			href="/saved"
 		>
@@ -132,7 +132,7 @@
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
 					fill="currentColor"
-					class="w-5 h-5"
+					class="w-6 h-6"
 				>
 					<path
 						fill-rule="evenodd"
@@ -145,9 +145,9 @@
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
 					viewBox="0 0 24 24"
-					stroke-width="2"
+					stroke-width="1.75"
 					stroke="currentColor"
-					class="w-5 h-5"
+					class="w-6 h-6"
 				>
 					<path
 						stroke-linecap="round"
@@ -159,16 +159,16 @@
 			<span>Saved</span></a
 		>
 		<a
-			class="flex flex-col items-center gap-1 w-full"
+			class="flex flex-col items-center gap-[0.15rem] w-full"
 			class:text-blue-500={$page.url.pathname === "/search"}
 			href="/search"
 			><svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
-				stroke-width="2"
+				stroke-width="1.75"
 				stroke="currentColor"
-				class="w-5 h-5"
+				class="w-6 h-6"
 			>
 				<path
 					stroke-linecap="round"
