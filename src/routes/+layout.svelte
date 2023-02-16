@@ -20,14 +20,14 @@
 	/>
 </svelte:head>
 
-<header class="px-4 py-2 border-b border-zinc-800 z-10">
+<header class="fixed w-full bg-zinc-900 px-4 py-2 border-b border-zinc-800 z-10">
 	<div class="flex items-center justify-between">
 		<p class="text-lg">Wifi2QR</p>
 	</div>
 </header>
 
 <main>
-	<div class="mb-36">
+	<div class="pt-12 mb-36">
 		<slot />
 	</div>
 </main>
