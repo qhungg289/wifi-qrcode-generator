@@ -20,6 +20,6 @@
 		{placeholder}
 		{required}
 		{disabled}
-		class="w-full bg-zinc-900 text-zinc-100 border-none disabled:opacity-75 disabled:cursor-not-allowed"
+		class="w-full bg-zinc-900 text-zinc-100 border-x-0 border-y-2 border-transparent focus:ring-0 focus:border-b-blue-500 focus:border-t-transparent disabled:opacity-75 disabled:cursor-not-allowed"
 	/>
 </label>
