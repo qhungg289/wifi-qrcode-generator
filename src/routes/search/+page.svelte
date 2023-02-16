@@ -60,6 +60,24 @@
 			</div>
 		{/each}
 	</div>
+{:else}
+	<div class="text-zinc-700 flex flex-col items-center gap-2 py-16 select-none">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			fill="none"
+			viewBox="0 0 24 24"
+			stroke-width="1.5"
+			stroke="currentColor"
+			class="w-32 h-32"
+		>
+			<path
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+			/>
+		</svg>
+		<p class="text-2xl">No results found</p>
+	</div>
 {/if}
 
 {#if isQrPreviewShow}
