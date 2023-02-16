@@ -27,7 +27,7 @@
 	<input
 		type="text"
 		bind:value={search}
-		class="bg-zinc-900 border border-zinc-800 w-full pl-12"
+		class="bg-zinc-900 border-y border-x-0 border-zinc-800 w-full pl-12"
 		placeholder="Search your saved wifi..."
 	/>
 	<svg

@@ -19,7 +19,10 @@
 	};
 </script>
 
-<label for={name} class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 text-zinc-400">
+<label
+	for={name}
+	class="flex items-center gap-4 bg-zinc-900 border-y border-zinc-800 text-zinc-400"
+>
 	<span class="pl-4">{label}</span>
 	<div class="flex w-full">
 		<input
