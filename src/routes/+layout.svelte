@@ -84,7 +84,7 @@
 		</div>
 	{/if}
 	<nav
-		class="py-2 flex items-center justify-around bg-zinc-900 text-zinc-400 text-xs font-bold border-t border-zinc-800 z-10"
+		class="py-1 flex items-center justify-around bg-zinc-900 text-zinc-400 text-[0.65rem] font-bold border-t border-zinc-800 z-10"
 	>
 		<a
 			class="flex flex-col items-center gap-1 w-full"
