@@ -84,10 +84,10 @@
 		</div>
 	{/if}
 	<nav
-		class="py-1 flex items-center justify-around bg-zinc-900 text-zinc-400 text-[0.65rem] border-t border-zinc-800 z-10"
+		class="pt-1 pb-[0.15rem] flex items-center justify-around bg-zinc-900 text-zinc-400 text-[0.7rem] border-t border-zinc-800 z-10"
 	>
 		<a
-			class="flex flex-col items-center gap-[0.15rem] w-full"
+			class="flex flex-col items-center gap-[0.05rem] w-full"
 			class:text-blue-500={$page.url.pathname === "/"}
 			href="/"
 		>
@@ -123,7 +123,7 @@
 			<span>Create</span>
 		</a>
 		<a
-			class="flex flex-col items-center gap-[0.15rem] w-full"
+			class="flex flex-col items-center gap-[0.05rem] w-full"
 			class:text-blue-500={$page.url.pathname === "/saved"}
 			href="/saved"
 		>
@@ -159,7 +159,7 @@
 			<span>Saved</span></a
 		>
 		<a
-			class="flex flex-col items-center gap-[0.15rem] w-full"
+			class="flex flex-col items-center gap-[0.05rem] w-full"
 			class:text-blue-500={$page.url.pathname === "/search"}
 			href="/search"
 			><svg
