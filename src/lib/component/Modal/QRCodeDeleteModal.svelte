@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Portal from "svelte-portal";
 	import { fade, scale } from "svelte/transition";
-	import type { WifiInfo } from "$lib/store/wifiList";
+	import type { Wifi } from "$lib/store/wifiList";
 	import { createEventDispatcher } from "svelte";
 	import { quartInOut } from "svelte/easing";
 
-	export let selectedWifi: WifiInfo | null = null;
+	export let selectedWifi: Wifi | null = null;
 
 	const dispatch = createEventDispatcher();
 </script>

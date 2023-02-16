@@ -1,6 +1,6 @@
 import { writable, get } from "svelte/store";
 
-export type WifiInfo = {
+export type Wifi = {
 	ssid: string;
 	encryption: string;
 	password: string;
@@ -8,14 +8,14 @@ export type WifiInfo = {
 	dataURL?: string;
 };
 
-export const wifiList = writable<WifiInfo[]>([]);
+export const wifiList = writable<Wifi[]>([]);
 
-export const addNewWifi = (wifi: WifiInfo) => {
+export const addNewWifi = (wifi: Wifi) => {
 	wifiList.update((l) => [...l, wifi]);
 	localStorage.setItem("wifiList", JSON.stringify(get(wifiList)));
 };
 
-export const deleteWifi = (wifi: WifiInfo) => {
+export const deleteWifi = (wifi: Wifi) => {
 	wifiList.update((l) => l.filter((w) => w !== wifi));
 	localStorage.setItem("wifiList", JSON.stringify(get(wifiList)));
 };

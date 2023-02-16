@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { wifiList, deleteWifi, type WifiInfo } from "$lib/store/wifiList";
+	import { wifiList, deleteWifi, type Wifi } from "$lib/store/wifiList";
 	import { flip } from "svelte/animate";
 	import Heading from "$lib/component/Typography/Heading.svelte";
 	import WifiOverview from "$lib/component/WifiOverview.svelte";
@@ -9,16 +9,16 @@
 	import { fade, fly } from "svelte/transition";
 	import { quartInOut } from "svelte/easing";
 
-	let selectedWifi: WifiInfo;
-	let selectedWifiList: WifiInfo[] = [];
+	let selectedWifi: Wifi;
+	let selectedWifiList: Wifi[] = [];
 	let isQrPreviewShow = false;
 	let isQrDeleteShow = false;
 	let isQrDeleteAllShow = false;
 	let isEdit = false;
 
-	const setSelectedWifi = (wifi: WifiInfo) => (selectedWifi = wifi);
+	const setSelectedWifi = (wifi: Wifi) => (selectedWifi = wifi);
 
-	const addToSelectedList = (e: CustomEvent<any>, wifi: WifiInfo) => {
+	const addToSelectedList = (e: CustomEvent<any>, wifi: Wifi) => {
 		if (e.detail == true) {
 			selectedWifiList = [...selectedWifiList, wifi];
 			return;
@@ -48,7 +48,7 @@
 			return;
 		}
 
-		const cleanedUpList: WifiInfo[] = JSON.parse(savedList);
+		const cleanedUpList: Wifi[] = JSON.parse(savedList);
 		cleanedUpList.forEach((w) => {
 			delete w.dataURL;
 		});

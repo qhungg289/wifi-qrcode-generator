@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { deleteWifi, wifiList, type WifiInfo } from "$lib/store/wifiList";
+	import { deleteWifi, wifiList, type Wifi } from "$lib/store/wifiList";
 	import { fade } from "svelte/transition";
 	import { flip } from "svelte/animate";
 	import Heading from "$lib/component/Typography/Heading.svelte";
@@ -12,11 +12,11 @@
 	$: regex = new RegExp(`(${search})+`, "i");
 	$: searchResults = $wifiList.filter((w) => regex.test(w.ssid));
 
-	let selectedWifi: WifiInfo;
+	let selectedWifi: Wifi;
 	let isQrPreviewShow = false;
 	let isQrDeleteShow = false;
 
-	const setSelectedWifi = (wifi: WifiInfo) => (selectedWifi = wifi);
+	const setSelectedWifi = (wifi: Wifi) => (selectedWifi = wifi);
 </script>
 
 <Heading>

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import type { WifiInfo } from "$lib/store/wifiList";
+	import type { Wifi } from "$lib/store/wifiList";
 	import { createEventDispatcher } from "svelte";
 
-	export let wifi: WifiInfo;
+	export let wifi: Wifi;
 	export let isEdit: boolean = false;
 	let checked: boolean = false;
 

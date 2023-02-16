@@ -2,10 +2,10 @@
 	import Portal from "svelte-portal";
 	import { fade, fly } from "svelte/transition";
 	import { quartInOut } from "svelte/easing";
-	import type { WifiInfo } from "$lib/store/wifiList";
+	import type { Wifi } from "$lib/store/wifiList";
 	import { createEventDispatcher } from "svelte";
 
-	export let selectedWifi: WifiInfo;
+	export let selectedWifi: Wifi;
 	export let disableDeleteAction = false;
 
 	const dispatch = createEventDispatcher();
