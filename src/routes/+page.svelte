@@ -105,5 +105,5 @@
 {/if}
 
 {#if isToastShow}
-	<Toast on:disappear={() => (isToastShow = false)}>QR code created.</Toast>
+	<Toast on:disappear={() => (isToastShow = false)}>QR code created</Toast>
 {/if}
