@@ -86,7 +86,7 @@
 			{#if qrSrc}
 				<button
 					transition:fade|local
-					class="bg-zinc-800 py-2 px-6 border border-zinc-700 hover:opacity-80 active:opacity-90 transition-all"
+					class="bg-zinc-800 py-2 px-6 hover:opacity-80 active:opacity-90 transition-all"
 					on:click|preventDefault={() => (isQrPreviewShow = !isQrPreviewShow)}
 					>{isQrPreviewShow ? "Hide QR code" : "Show QR code"}</button
 				>
