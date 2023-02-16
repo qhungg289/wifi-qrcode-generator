@@ -10,8 +10,6 @@
 
 	const dispatch = createEventDispatcher();
 
-	$: dispatch("check", checked);
-
 	const handleOverviewClick = () => {
 		if (isEdit) {
 			checked = !checked;
@@ -20,6 +18,8 @@
 
 		dispatch("showqrcode");
 	};
+
+	$: dispatch("check", checked);
 </script>
 
 <div
