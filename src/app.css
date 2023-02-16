@@ -6,12 +6,16 @@
 	@font-face {
 		font-family: "IBM Plex Sans";
 		font-weight: 400;
-		src: url("/fonts/IBMPlexSans-Regular.ttf");
+		src: url("/fonts/IBMPlexSans-Regular.woff") format("woff");
 	}
 
 	@font-face {
 		font-family: "IBM Plex Sans";
 		font-weight: 700;
-		src: url("/fonts/IBMPlexSans-Bold.ttf");
+		src: url("/fonts/IBMPlexSans-Bold.woff") format("woff");
 	}
+}
+
+body {
+	-webkit-tap-highlight-color: transparent;
 }
