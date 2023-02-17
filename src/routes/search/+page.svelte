@@ -19,6 +19,10 @@
 	const setSelectedWifi = (wifi: Wifi) => (selectedWifi = wifi);
 </script>
 
+<svelte:head>
+	<title>Search | Wifi2QR</title>
+</svelte:head>
+
 <Heading heading="Search" />
 
 <div class="relative">

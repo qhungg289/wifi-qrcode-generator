@@ -45,6 +45,10 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Create | Wifi2QR</title>
+</svelte:head>
+
 <Heading
 	heading="Create"
 	subHeading="Your wifi information stays in your machine and did not send to any server."

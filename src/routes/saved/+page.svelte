@@ -28,6 +28,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>Saved | Wifi2QR</title>
+</svelte:head>
+
 <Heading heading="Saved" />
 
 <div class="flex items-center justify-between mx-4 mb-4">
