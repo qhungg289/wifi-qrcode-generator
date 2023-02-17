@@ -13,14 +13,14 @@
 <Portal target="#modal-container">
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
-		class="fixed inset-0 flex items-center justify-center bg-black/80 z-20"
+		class="fixed inset-0 flex items-center justify-center bg-black/80 z-20 transition-all"
 		on:click={() => dispatch("clickoutside")}
 		in:fade
 		out:fade={{ delay: 100 }}
 	>
 		<div
 			on:click|stopPropagation
-			class="bg-zinc-900 border border-zinc-800 flex flex-col items-center"
+			class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 flex flex-col items-center"
 			in:scale={{ delay: 100, easing: quartInOut }}
 			out:scale={{ easing: quartInOut }}
 		>

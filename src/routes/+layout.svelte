@@ -35,7 +35,7 @@
 	id="header"
 	class={`fixed w-full ${
 		$isHeaderIntersect ? "bg-zinc-900/50 border-zinc-800/50" : "bg-black border-black"
-	} px-4 py-4 border-b  z-10 backdrop-blur-md`}
+	} px-4 py-2 border-b z-10 backdrop-blur-md`}
 >
 	<div class="flex items-center justify-between">
 		<p class="text-2xl font-bold" class:invisible={!$isHeaderIntersect}>
@@ -53,7 +53,7 @@
 </header>
 
 <main>
-	<div class="pt-12 mb-36">
+	<div class="pt-8 mb-36">
 		<slot />
 	</div>
 </main>
@@ -62,7 +62,7 @@
 	{#if $isListEdit && $selectedWifiList.length > 0}
 		<div
 			transition:fade|local={{ easing: quartInOut }}
-			class="px-4 py-2 bg-zinc-900 border-t border-zinc-800 pointer-events-auto flex items-center justify-between z-0"
+			class="px-4 py-2 bg-zinc-900/50 backdrop-blur-md border-t border-zinc-800 pointer-events-auto flex items-center justify-between z-0"
 		>
 			<div class="flex items-center justify-between gap-6">
 				<button
@@ -91,7 +91,7 @@
 		</div>
 	{/if}
 	<nav
-		class="pt-1 pb-[0.15rem] flex items-center justify-around bg-zinc-900 text-zinc-400 text-[0.7rem] border-t border-zinc-800 z-10"
+		class="pt-1 pb-[0.15rem] flex items-center justify-around bg-zinc-900/50 backdrop-blur-md text-zinc-400 text-[0.7rem] border-t border-zinc-800 z-10"
 	>
 		<a
 			class="flex flex-col items-center gap-[0.05rem] w-full"

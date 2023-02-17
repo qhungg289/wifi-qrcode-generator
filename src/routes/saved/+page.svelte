@@ -66,7 +66,7 @@
 		{/each}
 	</div>
 {:else}
-	<div class="text-zinc-700 flex flex-col items-center gap-2 py-16 select-none">
+	<div class="text-zinc-700 flex flex-col items-center gap-2 pt-28 select-none">
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"

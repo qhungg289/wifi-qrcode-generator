@@ -21,7 +21,7 @@
 	>
 		<div
 			on:click|stopPropagation
-			class="w-full bg-zinc-900 border-t border-zinc-800 p-4 flex flex-col items-center gap-6"
+			class="w-full bg-zinc-900/50 backdrop-blur-md border-t border-zinc-800 p-4 flex flex-col items-center gap-6"
 			in:fly={{ delay: 100, y: 500, easing: quartInOut }}
 			out:fly={{ y: 500, easing: quartInOut }}
 		>
