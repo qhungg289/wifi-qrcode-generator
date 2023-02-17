@@ -91,7 +91,7 @@
 		</div>
 	{/if}
 	<nav
-		class="pt-1 pb-[0.15rem] flex items-center justify-around bg-zinc-900/50 backdrop-blur-md text-zinc-400 text-[0.7rem] border-t border-zinc-800 z-10"
+		class="pt-1 pb-[0.15rem] flex items-center justify-around bg-zinc-900/50 backdrop-blur-md text-zinc-400 text-[0.7rem] border-t border-zinc-800/50 z-10"
 	>
 		<a
 			class="flex flex-col items-center gap-[0.05rem] w-full"

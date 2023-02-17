@@ -20,7 +20,7 @@
 	>
 		<div
 			on:click|stopPropagation
-			class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800 flex flex-col items-center"
+			class="bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 flex flex-col items-center"
 			in:scale={{ delay: 100, easing: quartInOut }}
 			out:scale={{ easing: quartInOut }}
 		>
