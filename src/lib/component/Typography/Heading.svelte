@@ -8,8 +8,6 @@
 
 	const actionCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
 		entries.forEach((e) => {
-			console.log(e);
-
 			if (e.isIntersecting == false) {
 				$isHeaderIntersect = true;
 				return;
