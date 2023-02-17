@@ -19,9 +19,7 @@
 	const setSelectedWifi = (wifi: Wifi) => (selectedWifi = wifi);
 </script>
 
-<Heading>
-	<svelte:fragment slot="heading">Search</svelte:fragment>
-</Heading>
+<Heading heading="Search" />
 
 <div class="relative">
 	<div class="border-y border-zinc-800">

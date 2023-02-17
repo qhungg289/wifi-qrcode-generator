@@ -28,9 +28,7 @@
 	});
 </script>
 
-<Heading>
-	<svelte:fragment slot="heading">Saved</svelte:fragment>
-</Heading>
+<Heading heading="Saved" />
 
 <div class="flex items-center justify-between mx-4 mb-4">
 	<div class="flex items-center justify-between">

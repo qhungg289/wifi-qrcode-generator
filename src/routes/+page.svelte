@@ -45,12 +45,10 @@
 	};
 </script>
 
-<Heading>
-	<svelte:fragment slot="heading">Create</svelte:fragment>
-	<svelte:fragment slot="sub-heading"
-		>Your wifi information stays in your machine and did not send to any server.</svelte:fragment
-	>
-</Heading>
+<Heading
+	heading="Create"
+	subHeading="Your wifi information stays in your machine and did not send to any server."
+/>
 
 <div class="">
 	<form on:submit|preventDefault={handleFormSubmit} class="space-y-4">

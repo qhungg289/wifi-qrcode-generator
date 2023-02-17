@@ -8,7 +8,7 @@
 		deleteAllFromSelectedList,
 		exportToJSON
 	} from "$lib/store/wifiList";
-	import { isListEdit, toggleIsListEdit } from "$lib/store/globalState";
+	import { isListEdit, headerText, isHeaderIntersect } from "$lib/store/globalState";
 	import { fade } from "svelte/transition";
 	import { quartInOut } from "svelte/easing";
 	import QrCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
@@ -31,14 +31,21 @@
 	/>
 </svelte:head>
 
-<header class="fixed w-full bg-zinc-900 px-4 py-2 border-b border-zinc-800 z-10">
+<header
+	id="header"
+	class={`fixed w-full ${
+		$isHeaderIntersect ? "bg-zinc-900/50 border-zinc-800/50" : "bg-black border-black"
+	} px-4 py-4 border-b  z-10 backdrop-blur-md`}
+>
 	<div class="flex items-center justify-between">
-		<p class="text-lg">Wifi2QR</p>
+		<p class="text-2xl font-bold" class:invisible={!$isHeaderIntersect}>
+			{$headerText}
+		</p>
 		{#if $page.url.pathname === "/saved"}
 			<button
 				disabled={$wifiList.length == 0}
-				on:click={toggleIsListEdit}
-				class="text-blue-400 hover:opacity-80 active:opacity-90 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+				on:click={() => ($isListEdit = !$isListEdit)}
+				class="text-blue-400 font-bold hover:opacity-80 active:opacity-90 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
 				>{$isListEdit ? "Done" : "Edit"}</button
 			>
 		{/if}
@@ -60,12 +67,12 @@
 			<div class="flex items-center justify-between gap-6">
 				<button
 					on:click={exportToJSON}
-					class="pointer-events-auto text-blue-600 hover:opacity-80 active:opacity-90 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+					class="pointer-events-auto text-blue-600 font-bold hover:opacity-80 active:opacity-90 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
 					>Export ({$selectedWifiList.length})</button
 				>
 				<button
 					on:click={() => (isDeleteAllFromSelectedShow = true)}
-					class="pointer-events-auto text-rose-600 hover:opacity-80 active:opacity-90 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
+					class="pointer-events-auto text-rose-600 font-bold hover:opacity-80 active:opacity-90 py-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed"
 					>Delete ({$selectedWifiList.length})</button
 				>
 				{#if isDeleteAllFromSelectedShow}
