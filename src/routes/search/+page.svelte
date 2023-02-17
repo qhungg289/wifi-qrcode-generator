@@ -24,12 +24,14 @@
 </Heading>
 
 <div class="relative">
-	<input
-		type="text"
-		bind:value={search}
-		class="bg-zinc-900 border-x-0 border-y-2 border-transparent focus:ring-0 focus:border-b-blue-500 focus:border-t-transparent w-full pl-12"
-		placeholder="Search your saved wifi..."
-	/>
+	<div class="border-y border-zinc-800">
+		<input
+			type="text"
+			bind:value={search}
+			class="bg-zinc-900 border-x-0 border-y-2 border-transparent focus:ring-0 focus:border-b-blue-500 focus:border-t-transparent w-full pl-12"
+			placeholder="Search your saved wifi..."
+		/>
+	</div>
 	<svg
 		xmlns="http://www.w3.org/2000/svg"
 		fill="none"
