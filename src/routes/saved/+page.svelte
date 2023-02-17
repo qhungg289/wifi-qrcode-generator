@@ -29,7 +29,7 @@
 </script>
 
 <Heading>
-	<svelte:fragment slot="heading">Saved wifi</svelte:fragment>
+	<svelte:fragment slot="heading">Saved</svelte:fragment>
 </Heading>
 
 <div class="flex items-center justify-between mx-4 mb-4">
