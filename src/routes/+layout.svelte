@@ -11,7 +11,7 @@
 	import { isListEdit, headerText, isHeaderIntersect } from "$lib/store/globalState";
 	import { fade } from "svelte/transition";
 	import { quartInOut } from "svelte/easing";
-	import QrCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
+	import QRCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
 
 	let isDeleteAllFromSelectedShow = false;
 
@@ -76,7 +76,7 @@
 					>Delete ({$selectedWifiList.length})</button
 				>
 				{#if isDeleteAllFromSelectedShow}
-					<QrCodeDeleteModal
+					<QRCodeDeleteModal
 						on:clickoutside={() => (isDeleteAllFromSelectedShow = false)}
 						on:close={() => (isDeleteAllFromSelectedShow = false)}
 						on:delete={() => {

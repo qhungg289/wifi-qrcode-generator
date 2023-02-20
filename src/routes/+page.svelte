@@ -7,7 +7,7 @@
 	import RadioGroup from "$lib/component/Input/RadioGroupInput.svelte";
 	import PasswordInput from "$lib/component/Input/PasswordInput.svelte";
 	import CheckBoxInput from "$lib/component/Input/CheckBoxInput.svelte";
-	import QrCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
+	import QRCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
 	import Toast from "$lib/component/Toast.svelte";
 
 	let ssid = "";
@@ -16,7 +16,7 @@
 	let hidden = false;
 	let qrSrc = "";
 
-	let isQrPreviewShow = false;
+	let isQRPreviewShow = false;
 	let isToastShow = false;
 
 	$: isPasswordFieldUnavailable = encryption === "nopass";
@@ -89,20 +89,20 @@
 				<button
 					transition:fade|local
 					class="bg-zinc-800 py-2 px-6 hover:opacity-80 active:opacity-90 transition-all"
-					on:click|preventDefault={() => (isQrPreviewShow = !isQrPreviewShow)}
-					>{isQrPreviewShow ? "Hide QR code" : "Show QR code"}</button
+					on:click|preventDefault={() => (isQRPreviewShow = !isQRPreviewShow)}
+					>{isQRPreviewShow ? "Hide QR code" : "Show QR code"}</button
 				>
 			{/if}
 		</div>
 	</form>
 </div>
 
-{#if isQrPreviewShow}
-	<QrCodePreviewModal
+{#if isQRPreviewShow}
+	<QRCodePreviewModal
 		selectedWifi={{ ssid, encryption, password, hidden, dataURL: qrSrc }}
 		disableDeleteAction
-		on:clickoutside={() => (isQrPreviewShow = false)}
-		on:close={() => (isQrPreviewShow = false)}
+		on:clickoutside={() => (isQRPreviewShow = false)}
+		on:close={() => (isQRPreviewShow = false)}
 	/>
 {/if}
 

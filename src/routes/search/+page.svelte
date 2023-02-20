@@ -4,8 +4,8 @@
 	import { flip } from "svelte/animate";
 	import Heading from "$lib/component/Typography/Heading.svelte";
 	import WifiOverview from "$lib/component/WifiOverview.svelte";
-	import QrCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
-	import QrCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
+	import QRCodePreviewModal from "$lib/component/Modal/QRCodePreviewModal.svelte";
+	import QRCodeDeleteModal from "$lib/component/Modal/QRCodeDeleteModal.svelte";
 	import SearchInput from "$lib/component/Input/SearchInput.svelte";
 
 	let search = "";
@@ -18,8 +18,8 @@
 	};
 
 	let selectedWifi: Wifi;
-	let isQrPreviewShow = false;
-	let isQrDeleteShow = false;
+	let isQRPreviewShow = false;
+	let isQRDeleteShow = false;
 
 	const setSelectedWifi = (wifi: Wifi) => (selectedWifi = wifi);
 </script>
@@ -40,7 +40,7 @@
 					{wifi}
 					on:showqrcode={() => {
 						setSelectedWifi(wifi);
-						isQrPreviewShow = true;
+						isQRPreviewShow = true;
 					}}
 				/>
 			</div>
@@ -69,26 +69,26 @@
 	</div>
 {/if}
 
-{#if isQrPreviewShow}
-	<QrCodePreviewModal
+{#if isQRPreviewShow}
+	<QRCodePreviewModal
 		{selectedWifi}
-		on:clickoutside={() => (isQrPreviewShow = false)}
-		on:close={() => (isQrPreviewShow = false)}
+		on:clickoutside={() => (isQRPreviewShow = false)}
+		on:close={() => (isQRPreviewShow = false)}
 		on:delete={() => {
-			isQrDeleteShow = true;
+			isQRDeleteShow = true;
 		}}
 	/>
 {/if}
 
-{#if isQrDeleteShow}
-	<QrCodeDeleteModal
+{#if isQRDeleteShow}
+	<QRCodeDeleteModal
 		{selectedWifi}
-		on:clickoutside={() => (isQrDeleteShow = false)}
-		on:close={() => (isQrDeleteShow = false)}
+		on:clickoutside={() => (isQRDeleteShow = false)}
+		on:close={() => (isQRDeleteShow = false)}
 		on:delete={() => {
 			deleteWifi(selectedWifi);
-			isQrDeleteShow = false;
-			isQrPreviewShow = false;
+			isQRDeleteShow = false;
+			isQRPreviewShow = false;
 		}}
 	/>
 {/if}
