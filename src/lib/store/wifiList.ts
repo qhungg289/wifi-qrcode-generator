@@ -52,4 +52,5 @@ export const exportToJSON = () => {
 	a.href = URL.createObjectURL(new Blob([JSON.stringify(JSONList)], { type: "application/json" }));
 	a.download = "wifi.json";
 	a.click();
+	URL.revokeObjectURL(a.href);
 };
