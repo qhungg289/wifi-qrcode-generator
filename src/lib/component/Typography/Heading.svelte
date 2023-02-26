@@ -6,7 +6,7 @@
 	export let heading = "";
 	export let subHeading = "";
 
-	const actionCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+	const actionCallback = (entries: IntersectionObserverEntry[], _observer: IntersectionObserver) => {
 		entries.forEach((e) => {
 			if (e.isIntersecting == false) {
 				$isHeaderIntersect = true;
