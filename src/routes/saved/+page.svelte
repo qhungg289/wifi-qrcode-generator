@@ -20,7 +20,9 @@
 	let isQRPreviewShow = false;
 	let isQRDeleteShow = false;
 
-	const setSelectedWifi = (wifi: Wifi) => (selectedWifi = wifi);
+	const setSelectedWifi = (wifi: Wifi) => {
+		selectedWifi = wifi;
+	};
 
 	onDestroy(() => {
 		$isListEdit = false;
